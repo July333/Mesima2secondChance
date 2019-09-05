@@ -4,7 +4,7 @@ var arr = [];
 var myMain = document.getElementById('myMain');
 var counter = 0;
 var MAX_LEN = 40;
-var sizeWin=0;
+var sizeWin = 0;
 ///StartPrograms
 //template
 function templateUser() {
@@ -67,13 +67,13 @@ function myLoad() {
 //$(window).on("scroll", function () {
 //    $('.jscroll').jscroll();
 //});
-$(window).scroll(function() {
-   if($(window).scrollTop() + $(window).height() >= sizeWin) {
-    //alert("bottom!");
-    console.log("scroll");
-    RandomUsers(10);
-}
-  });
+$(window).scroll(function () {
+    if ($(window).scrollTop() + $(window).height() >= sizeWin) {
+        //alert("bottom!");
+        console.log("scroll");
+        RandomUsers(10);
+    }
+});
 
 //Random
 
@@ -104,8 +104,18 @@ function RandomUsers(MAX_LEN) {
                         $("#count").text("You have " + (++counter) + " favourites");
                     }
                 });
+                ///8 drag and drop not finished (bonus question)
+                /*$(b).on('dragover', function (e) {
+                    ev.preventDefault();
+                });
+                $(b).on('drag', function (e) {
+                    b.removeChild(this);
+                });
+                $(b).on('drop', function (e) {
+                    b.append(this);
+                });*/
             }
-            sizeWin=$(document).height();
+            sizeWin = $(document).height();
             console.log(sizeWin);
         },
         error: "Uh oh, something has gone wrong. Please tweet us @randomapi about the issue. Thank you."
