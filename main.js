@@ -4,7 +4,7 @@ var arr = [];
 var myMain = document.getElementById('myMain');
 var counter = 0;
 var MAX_LEN = 40;
-
+var sizeWin=0;
 ///StartPrograms
 //template
 function templateUser() {
@@ -22,7 +22,6 @@ function templateUser() {
 }
 templateUser();
 
-///
 function changeTemplate(o) {
     let temp = template;
     temp = temp.replace('{{img}}', o.picture.large);
@@ -69,12 +68,11 @@ function myLoad() {
 //    $('.jscroll').jscroll();
 //});
 $(window).scroll(function() {
-   debugger; 
-   if($(window).scrollTop() + $(window).height() == $(document).height()) {
-    alert("bottom!");
-    console.log("hi");
+   if($(window).scrollTop() + $(window).height() >= sizeWin) {
+    //alert("bottom!");
+    console.log("scroll");
+    RandomUsers(10);
 }
-    //RandomUsers(10);
   });
 
 //Random
@@ -107,6 +105,8 @@ function RandomUsers(MAX_LEN) {
                     }
                 });
             }
+            sizeWin=$(document).height();
+            console.log(sizeWin);
         },
         error: "Uh oh, something has gone wrong. Please tweet us @randomapi about the issue. Thank you."
     });
